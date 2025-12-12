@@ -23,7 +23,12 @@ const deactivateUser = (user) => {
 
 // Print each property and value in the format "key: value"
 const printUserInfo = (user) => {
-
+const keys = Object.keys(user);
+  for(let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    const value = user[key];
+    console.log(`${key}: ${value}`);
+  }
 };
 
 // BONUS: Return a true copy of the user object (not a reference)
