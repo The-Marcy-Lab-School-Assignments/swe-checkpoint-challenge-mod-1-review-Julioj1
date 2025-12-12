@@ -19,7 +19,9 @@ const getMovieTitles = (movies) => {
 
 // Return the total box office earnings across all movies.
 const getTotalBoxOffice = (movies) => {
-
+  return movies.reduce((totalBox, movie) => {
+    return totalBox + movie.boxOffice;
+  },0)
 };
 
 // Return an array of the titles of all movies made in 2018 or later.
