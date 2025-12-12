@@ -33,7 +33,7 @@ const keys = Object.keys(user);
 
 // BONUS: Return a true copy of the user object (not a reference)
 const cloneUser = (user) => {
-
+  return {...user};
 };
 
 module.exports = {
