@@ -1,6 +1,7 @@
 # Short Responses
 
 For this assessment, aim to write a response with the following qualities:
+
 - [ ] Addresses all parts of the prompt
 - [ ] Accurately uses relevant technical terminology
 - [ ] Is free of grammar and spelling mistakes
@@ -26,7 +27,7 @@ const getLetterGrade = (score) => {
   }
 
   return "Your grade is: " + letter;
-}
+};
 
 console.log(getLetterGrade(95)); // This should print "Your grade is: A"
 console.log(getLetterGrade(82)); // This should print "Your grade is: B"
@@ -42,11 +43,13 @@ console.log(getLetterGrade(65)); // This should print "Your grade is: F"
 
 **Part A:**
 
-Your response...
+The bug occurs because of **variable shadowing** and **block scope**.
+
+Inside the `if`, `else if`, and `else` blocks, `let letter = "A"` its written; what this does is that each of these creates a **new variable** named `letter` that exists only **inside that block**. So you end up with **two** different letter variables
 
 **Part B:**
 
-Your response...
+In order to fix this error you need to **remove** the let inside the `if/else` blocks so that you **assign** a value to the **existing** outer variable instead of creating new block-scoped ones.
 
 ---
 
@@ -69,18 +72,18 @@ console.log(originalSettings.volume);
 
 **Part A:**
 
-Your response...
+The console will log 75 and this happens because in JavaScript objects are stored by reference not value. So when we write `const newSettings = originalSettings;` what we are doing is that both variables are now pointing to the same reference in memory.
 
 **Part B:**
 
-Your response...
+To make sure that changing `newSettings` does not affect `originalSettings`, we must create a shallow copy of the object, like in the example below.
 
 **Corrected Code:**
 
 ```js
 // Fix this code so newSettings is a true copy
 const originalSettings = { volume: 50, brightness: 80 };
-const newSettings = originalSettings;
+const newSettings = { ...originalSettings };
 newSettings.volume = 75;
 console.log(originalSettings.volume);
 ```
@@ -90,6 +93,7 @@ console.log(originalSettings.volume);
 ## Prompt 3
 
 Given this array of products and the code using `filter`:
+
 ```js
 const products = [
   { name: "Laptop", price: 1000, inStock: true },
@@ -99,15 +103,40 @@ const products = [
 ];
 
 const itemsInStock = products.filter((product) => {
-  return product.inStock
+  return product.inStock;
 });
 ```
 
 Walk through what happens in the first iteration of filter:
+
 - What is the value of `product`?
 - What gets returned from the callback?
 - What happens with that returned value?
 
 ### Response 3
 
-Your response...
+```js
+// On the first iteration, filter looks at the first element of the array:
+{ name: "Laptop", price: 1000, inStock: true };
+
+// So now product is:
+product = { name: "Laptop", price: 1000, inStock: true };
+
+// What gets returned from the callback?
+return product.inStock;
+
+// Since product.inStock is true it returns:
+true;
+
+// What happens with that returned value?
+
+// filter uses the returned value to decide whether to include this item in the new array or not.
+
+// Because the callback returned true, the product is added to itemsInStock.
+
+// So after the first iteration:
+
+itemsInStock = [
+  { name: "Laptop", price: 1000, inStock: true };
+];
+```
