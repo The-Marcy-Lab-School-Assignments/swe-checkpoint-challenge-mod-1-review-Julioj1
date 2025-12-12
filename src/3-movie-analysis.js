@@ -9,7 +9,7 @@ const movies = [
 
 // Return an array of only movies with box office earnings over $300 million.
 const getBlockbusters = (movies) => {
-
+  return movies.filter((movie) => movie.boxOffice > 300);
 };
 
 // Return an array of the titles of all movies.
