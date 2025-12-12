@@ -4,8 +4,8 @@ const createUser = (username, email) => {
     username,
     email,
     isActive: true,
-    loginCount: 0
-  }
+    loginCount: 0,
+  };
   return newUser;
 };
 
@@ -23,8 +23,8 @@ const deactivateUser = (user) => {
 
 // Print each property and value in the format "key: value"
 const printUserInfo = (user) => {
-const keys = Object.keys(user);
-  for(let i = 0; i < keys.length; i++) {
+  const keys = Object.keys(user);
+  for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
     const value = user[key];
     console.log(`${key}: ${value}`);
@@ -33,7 +33,7 @@ const keys = Object.keys(user);
 
 // BONUS: Return a true copy of the user object (not a reference)
 const cloneUser = (user) => {
-  return {...user};
+  return { ...user };
 };
 
 module.exports = {

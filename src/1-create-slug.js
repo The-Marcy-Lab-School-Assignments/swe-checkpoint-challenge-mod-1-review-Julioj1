@@ -2,12 +2,12 @@
 // Return null if the title contains banned characters: "!", "#", "?"
 const createSlug = (title) => {
   const bannedCharacters = ['!', '#', '?'];
-   for (let i = 0; i < bannedCharacters.length; i++) {
+  for (let i = 0; i < bannedCharacters.length; i++) {
     if (title.includes(bannedCharacters[i])) {
       return null;
     }
   }
-  const slug = title.toLowerCase().replaceAll(' ', "-");
+  const slug = title.toLowerCase().replaceAll(' ', '-');
   return slug;
 };
 

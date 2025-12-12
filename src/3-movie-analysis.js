@@ -21,14 +21,14 @@ const getMovieTitles = (movies) => {
 const getTotalBoxOffice = (movies) => {
   return movies.reduce((totalBox, movie) => {
     return totalBox + movie.boxOffice;
-  },0)
+  }, 0);
 };
 
 // Return an array of the titles of all movies made in 2018 or later.
 const getRecentMovieTitles = (movies) => {
   return movies
-  .filter((movie) => movie.year >= 2018)
-  .map((movie) => movie.title);
+    .filter((movie) => movie.year >= 2018)
+    .map((movie) => movie.title);
 };
 
 module.exports = {
