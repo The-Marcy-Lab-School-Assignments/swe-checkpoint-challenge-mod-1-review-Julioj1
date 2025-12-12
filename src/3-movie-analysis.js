@@ -26,7 +26,9 @@ const getTotalBoxOffice = (movies) => {
 
 // Return an array of the titles of all movies made in 2018 or later.
 const getRecentMovieTitles = (movies) => {
-
+  return movies
+  .filter((movie) => movie.year >= 2018)
+  .map((movie) => movie.title);
 };
 
 module.exports = {
