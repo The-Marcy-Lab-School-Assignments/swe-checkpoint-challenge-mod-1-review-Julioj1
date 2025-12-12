@@ -1,6 +1,12 @@
 // Return a new user object with username, email, isActive: true, loginCount: 0
 const createUser = (username, email) => {
-
+  const newUser = {
+    username,
+    email,
+    isActive: true,
+    loginCount: 0
+  }
+  return newUser;
 };
 
 // Increase the user's loginCount by 1
