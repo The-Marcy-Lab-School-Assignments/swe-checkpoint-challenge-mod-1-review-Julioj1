@@ -11,12 +11,14 @@ const createUser = (username, email) => {
 
 // Increase the user's loginCount by 1
 const incrementLogin = (user) => {
-
+  user.loginCount += 1;
 };
 
 // Set isActive to false and delete the email property. Return the user.
 const deactivateUser = (user) => {
-
+  user.isActive = false;
+  delete user.email;
+  return user;
 };
 
 // Print each property and value in the format "key: value"
