@@ -14,7 +14,7 @@ const getBlockbusters = (movies) => {
 
 // Return an array of the titles of all movies.
 const getMovieTitles = (movies) => {
-
+  return movies.map((movie) => movie.title);
 };
 
 // Return the total box office earnings across all movies.
